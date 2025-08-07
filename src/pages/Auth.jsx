@@ -1,10 +1,11 @@
 import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useSearchParams } from 'react-router-dom'
+import Login from '@/components/Login';
 const Auth = () => {
   const [searchParams]=useSearchParams();
   return (
-    <div className='mt-24 flex flex-col items-center gap-10'>
+    <div className='mt-10 flex flex-col items-center gap-10'>
       <h1 className='text-5xl font-extrabold'>
         {searchParams.get("createNew")?"Hold up! Let's login first!":"Login / SignUp"}
       </h1>
@@ -13,7 +14,7 @@ const Auth = () => {
           <TabsTrigger value="login">Login</TabsTrigger>
           <TabsTrigger value="signup">SignUp</TabsTrigger>
         </TabsList>
-        <TabsContent value="login">login component</TabsContent>
+        <TabsContent value="login"><Login/></TabsContent>
         <TabsContent value="signup">Sign up component</TabsContent>
       </Tabs>
     </div>
