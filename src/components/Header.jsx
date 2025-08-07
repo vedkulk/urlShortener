@@ -17,11 +17,11 @@ const Header = () => {
     return (
         <nav className='py-4 flex justify-between items-center'>
             <Link to='/'>
-                <img src="logo.png" className='h-25 w-20 rounded-[25%] border border-2 border-green-50' alt='shrikray logo'/>
+                <img src="logo.png" className='h-25 w-20 rounded-[25%] border-2 border-green-50' alt='shrikray logo'/>
             </Link>
             <div>
                 {
-                user?(<Button onClick={()=>navigate('/auth')}>Login</Button>):
+                !user?(<Button onClick={()=>navigate('/auth')}>Login</Button>):
                 (<DropdownMenu>
                 <DropdownMenuTrigger className='w-10 rounded-full overflow-hidden'>
                     <Avatar>
