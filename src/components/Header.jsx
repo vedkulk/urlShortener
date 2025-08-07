@@ -13,7 +13,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { LinkIcon, LogOut } from 'lucide-react'
 const Header = () => {
     const navigate = useNavigate();
-    const user = false;
+    const user = true;
     return (
         <nav className='py-4 flex justify-between items-center'>
             <Link to='/'>
