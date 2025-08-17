@@ -12,9 +12,10 @@ import { Button } from './ui/button'
 import { BeatLoader } from "react-spinners"
 import Error from './error'
 import * as Yup from 'yup'
-import useFetch from '@/hooks/useFetch'
 import { login } from '@/db/apiAuth'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { urlState } from '@/context'
+import useFetch from '@/hooks/useFetch'
 
 const Login = () => {
   const [errors, setErrors] = useState({})
@@ -35,10 +36,12 @@ const Login = () => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams();
   const longLink = searchParams.get("createNew");
+  const {fetchUser} = urlState()
 
   useEffect(() => {
     if(error===null&&data){
       navigate(`/dashboard${longLink?`createNew=${longLink}`:``}`)
+      fetchUser();
     }
   }, [data, error])
   
