@@ -9,7 +9,12 @@ const useFetch = (cb, options = {}) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await cb(options, ...args);
+      let response;
+      if (Object.keys(options).length === 0 && args.length > 0) {
+        response = await cb(...args);
+      } else {
+        response = await cb(options, ...args);
+      }
       setData(response);
       setError(null);
     } catch (error) {
