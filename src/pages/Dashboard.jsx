@@ -18,6 +18,7 @@ import { urlState } from '@/context'
 import { getClicks } from '@/db/apiClicks'
 import { useEffect } from 'react'
 import LinkCard from '@/components/ui/linkCard'
+import CreateLink from '@/components/ui/CreateLink'
 
 const Dashboard = () => {
   const[searchQuery, setSearchQuery]=useState("")
@@ -68,9 +69,7 @@ const Dashboard = () => {
       </div>
       <div className='flex justify-between'>
         <h1 className='text-4xl font-extrabold'>My Links</h1>
-        <Button>
-          Create Link
-        </Button>
+        <CreateLink/>
       </div>
       <div className='relative'>
         <Input type="text" placeholder="Filter links"
